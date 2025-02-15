@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #0a0a1a
+}
+
+#controls {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px
+}
+
+button,
+input[type="range"] {
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #272727bf, #52525233);
+    color: #e9e9e9d9;
+    border: 1px solid #66666696;
+    border-radius: 5px;
+    cursor: pointer;
+    backdrop-filter: blur(5px)
+}
+
+button:hover,
+input[type="range"]:hover {
+    background: rgba(80, 80, 80, .9)
+}
+
+input[type="range"] {
+    padding: 0px 0px;
+    width: 254px;
+    margin: 10px 0;
+}
+
+#infoPanel {
+    position: absolute;
+    bottom: 21px;
+    right: 234px;
+    background: linear-gradient(45deg, #2c2c2c47, #37373780);
+    color: #fff;
+    padding: 13px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 300px;
+    backdrop-filter: blur(5px);
+    border: 1px solid #929292a6;
+    display: none
+}
+
+.tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, .8);
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 8px;
+    pointer-events: none;
+    font-size: 14px;
+    display: none
+}
+
+#stats {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    font-family: sans-serif;
+    z-index: 100
+}
+
+#minimap {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border: 2px solid #7b7b7b82;
+    z-index: 100;
+    border-radius: 16px;
+    backdrop-filter: blur(5px)
+}
+
+#shortcutsMenu {
+    position: absolute;
+    top: 36vh;
+    left: 20px;
+    background: linear-gradient(45deg, #2c2c2c73, #37373754);
+    backdrop-filter: blur(5px);
+    color: #fff;
+    padding: 10px 40px;
+    display: none;
+    border-radius: 18px;
+    border: 1px solid #929292a6
+}
+
+#debugOverlay {
+    position: absolute;
+    top: 19.5vh;
+    left: 20px;
+    background: linear-gradient(45deg, #2c2c2c73, #3737373b);
+    backdrop-filter: blur(5px);
+    color: #fff;
+    padding: 10px 20px;
+    display: none;
+    z-index: 100;
+    border-radius: 18px;
+    border: 1px solid #929292a6
+}
+
+label {
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    justify-content: space-between
+}
+
+.buttonControls {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 17px
+}
+
+.sliderControls {
+    position: fixed;
+    right: 16px;
+    top: 35vh;
+    backdrop-filter: blur(5px);
+    border: 1px solid #ffffff6b;
+    background: linear-gradient(45deg, #2c2c2c73, #3737373b);
+    padding: 10px 20px;
+    border-radius: 12px
+}
