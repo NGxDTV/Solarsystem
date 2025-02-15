@@ -25,6 +25,13 @@ This project is an interactive 3D solar system simulation built using Three.js. 
   - `L`: Toggle environment mapping
   - `G`: Toggle grid view
 
+### Navigation
+- **Double-click** on an object to fly to it.
+- **Left-click & hold** to rotate the camera.
+- **Mouse wheel** to zoom in and out.
+- **Right-click & hold** to freely move the camera.
+- **Select objects** to display orbit lines and additional information.
+
 ## Installation
 1. Clone the repository:
    ```bash
@@ -43,6 +50,9 @@ This project is an interactive 3D solar system simulation built using Three.js. 
 
 ## Assets
 Textures are sourced from [solarsystemscope.com](https://www.solarsystemscope.com/textures/).
+
+**License:**
+The textures from [solarsystemscope.com](https://www.solarsystemscope.com/textures/) are distributed under the Attribution 4.0 International license. You may use, adapt, and share these textures for any purpose, even commercially.
 
 ## License
 This project is open-source and available under the MIT License.
