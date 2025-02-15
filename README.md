@@ -28,7 +28,7 @@ This project is an interactive 3D solar system simulation built using Three.js. 
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repository/solar-system-simulation.git
+   git clone https://github.com/NGxDTV/Solarsystem.git
    ```
 2. Navigate to the project folder:
    ```bash
