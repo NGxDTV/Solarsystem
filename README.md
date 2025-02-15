@@ -13,6 +13,17 @@ I dont know what I am doing, but it looks right I guess
 - **Minimap & Debugging**: Includes a small overview minimap and debugging panel.
 - **Screenshot Feature**: Capture high-quality images of your simulation.
 
+## Images
+
+### Solar System View
+![Solar System](images/Readme/system.png)
+
+### Orbit Lines Display
+![Orbit Display](images/Readme/orbit_display_sun.png)
+
+### Earth's and Moon's Orbit
+![Earth-Moon Orbit](images/Readme/orbit_display_obj.png)
+
 ## Usage
 ### Controls
 - **Buttons**: Toggle different features like camera reset, full-screen mode, and randomization.
