@@ -239,7 +239,7 @@ function createSaturn(sun) {
     const ring = new THREE.Mesh(ringGeometry, ringMaterial);
 
     saturn.rotation.z = THREE.MathUtils.degToRad(26.7);
-    
+
     ring.rotation.x = Math.PI / 2;
     ring.rotation.x = THREE.MathUtils.degToRad(90 - 26.7);
 
@@ -258,6 +258,43 @@ function createUranus(sun) {
     const uranus = new THREE.Mesh(geometry, material);
     uranus.userData = { type: { type: "Planet" }, name: "Uranus", mass: 8.68e25, parent: sun, planets: [] };
     uranus.position.set(350, 0, 0);
+
+    const inner = 14, outer = 17;
+    const ringGeometry = new THREE.RingGeometry(inner, outer, 64);
+    const posAttr = ringGeometry.attributes.position;
+    const uvAttr = ringGeometry.attributes.uv;
+    for (let i = 0; i < posAttr.count; i++) {
+        const x = posAttr.getX(i);
+        const y = posAttr.getY(i);
+        const r = Math.sqrt(x * x + y * y);
+        let angle = Math.atan2(y, x);
+        if (angle < 0) angle += Math.PI * 2;
+        const u = angle / (Math.PI * 2);
+        const v = (r - inner) / (outer - inner);
+        uvAttr.setXY(i, u, v);
+    }
+    uvAttr.needsUpdate = true;
+
+    const ringTexture = new THREE.TextureLoader().load("images/Uranus/2k_uranus_ring.png");
+    ringTexture.wrapS = THREE.RepeatWrapping;
+    ringTexture.wrapT = THREE.RepeatWrapping;
+    ringTexture.center.set(0.5, 0.5);
+    ringTexture.rotation = Math.PI / 2;
+
+    const ringMaterial = new THREE.MeshBasicMaterial({
+        map: ringTexture,
+        side: THREE.DoubleSide,
+        transparent: true,
+        opacity: 0.6
+    });
+
+    const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+
+    uranus.rotation.z = THREE.MathUtils.degToRad(98);
+    ring.rotation.x = THREE.MathUtils.degToRad(90 - 98);
+
+    uranus.add(ring);
+
     return uranus;
 }
 
