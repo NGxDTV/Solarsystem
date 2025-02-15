@@ -3,7 +3,6 @@ function startAnimation() {
         simulationStartDate = new Date();
     }
     isAnimating = true;
-    animate();
 }
 
 function pauseAnimation() { isAnimating = false; }
