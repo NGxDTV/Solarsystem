@@ -32,7 +32,7 @@ This project is an interactive 3D solar system simulation built using Three.js. 
    ```
 2. Navigate to the project folder:
    ```bash
-   cd solar-system-simulation
+   cd Solarsystem
    ```
 3. Open `index.html` in a browser.
 
