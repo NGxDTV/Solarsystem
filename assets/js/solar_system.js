@@ -140,7 +140,7 @@ function createMercury(sun) {
         metalness: 0.5
     });
     const mercury = new THREE.Mesh(geometry, material);
-    mercury.userData = { type: { type: "Planet" }, name: "☿ Mercury", mass: 3.3e23, parent: sun, planets: [] };
+    mercury.userData = { type: { type: "Planet" }, name: "Mercury", mass: 3.3e23, parent: sun, planets: [] };
     mercury.position.set(40, 0, 0);
     return mercury;
 }
@@ -166,7 +166,7 @@ function createVenus(sun) {
     const venus = new THREE.Group();
     venus.add(venusSurface);
     venus.add(venusAtmosphere);
-    venus.userData = { type: { type: "Planet" }, name: "♀ Venus", mass: 4.87e24, parent: sun, planets: [] };
+    venus.userData = { type: { type: "Planet" }, name: "Venus", mass: 4.87e24, parent: sun, planets: [] };
     venus.position.set(70, 0, 0);
     return venus;
 }
@@ -179,7 +179,7 @@ function createMars(sun) {
         metalness: 0.2
     });
     const mars = new THREE.Mesh(geometry, material);
-    mars.userData = { type: { type: "Planet" }, name: "♂ Mars", mass: 6.42e23, parent: sun, planets: [] };
+    mars.userData = { type: { type: "Planet" }, name: "Mars", mass: 6.42e23, parent: sun, planets: [] };
     mars.position.set(140, 0, 0);
     return mars;
 }
@@ -192,7 +192,7 @@ function createJupiter(sun) {
         metalness: 0.2
     });
     const jupiter = new THREE.Mesh(geometry, material);
-    jupiter.userData = { type: { type: "Planet" }, name: "♃ Jupiter", mass: 1.9e27, parent: sun, planets: [] };
+    jupiter.userData = { type: { type: "Planet" }, name: "Jupiter", mass: 1.9e27, parent: sun, planets: [] };
     jupiter.position.set(250, 0, 0);
     return jupiter;
 }
@@ -205,7 +205,7 @@ function createSaturn(sun) {
         metalness: 0.2
     });
     const saturn = new THREE.Mesh(geometry, material);
-    saturn.userData = { type: { type: "Planet" }, name: "♄ Saturn", mass: 5.68e26, parent: sun, planets: [] };
+    saturn.userData = { type: { type: "Planet" }, name: "Saturn", mass: 5.68e26, parent: sun, planets: [] };
     saturn.position.set(300, 0, 0);
 
     const inner = 15, outer = 20;
@@ -237,8 +237,14 @@ function createSaturn(sun) {
         opacity: 0.7
     });
     const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+
+    saturn.rotation.z = THREE.MathUtils.degToRad(26.7);
+    
     ring.rotation.x = Math.PI / 2;
+    ring.rotation.x = THREE.MathUtils.degToRad(90 - 26.7);
+
     saturn.add(ring);
+
     return saturn;
 }
 
@@ -250,7 +256,7 @@ function createUranus(sun) {
         metalness: 0.2
     });
     const uranus = new THREE.Mesh(geometry, material);
-    uranus.userData = { type: { type: "Planet" }, name: "♅ Uranus", mass: 8.68e25, parent: sun, planets: [] };
+    uranus.userData = { type: { type: "Planet" }, name: "Uranus", mass: 8.68e25, parent: sun, planets: [] };
     uranus.position.set(350, 0, 0);
     return uranus;
 }
@@ -263,7 +269,7 @@ function createNeptune(sun) {
         metalness: 0.2
     });
     const neptune = new THREE.Mesh(geometry, material);
-    neptune.userData = { type: { type: "Planet" }, name: "♆ Neptune", mass: 1.02e26, parent: sun, planets: [] };
+    neptune.userData = { type: { type: "Planet" }, name: "Neptune", mass: 1.02e26, parent: sun, planets: [] };
     neptune.position.set(40, 0, 0);
     return neptune;
 }
