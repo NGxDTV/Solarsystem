@@ -1,15 +1,28 @@
+let oldSimulationSpeed = simulationSpeed;
+
 function startAnimation() {
     if (!simulationStartDate) {
         simulationStartDate = new Date();
     }
+
+    if (!isAnimating)
+        simulationSpeed = oldSimulationSpeed;
+
     isAnimating = true;
 }
 
-function pauseAnimation() { isAnimating = false; }
+function pauseAnimation() {
+    if (isAnimating) {
+        oldSimulationSpeed = simulationSpeed;
+        simulationSpeed = 0;
+    }
+
+    isAnimating = false;
+}
 
 function resetSimulation() {
     for (let i = 0; i < TOTAL_PLANETS; i++) {
-        particleData[i].position.copy(particleData[i].initialPosition);
+        //particleData[i].position.copy(particleData[i].initialPosition);
 
         velocities[i * 3] = particleData[i].initialVelocity.x;
         velocities[i * 3 + 1] = particleData[i].initialVelocity.y;
@@ -29,4 +42,6 @@ function resetSimulation() {
 
     controls.target.set(0, 0, 0);
     controls.update();
+
+    setPlanetenNachDatum(new Date());
 }
