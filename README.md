@@ -2,6 +2,8 @@
 
 This project is an interactive 3D solar system simulation built using Three.js. It allows users to explore planets, control camera views, toggle various effects, and even manipulate the simulation speed.
 
+I dont know what I am doing, but it looks right I guess
+
 ## Features
 - **Realistic Solar System**: Includes the Sun, Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.
 - **Planetary Orbits**: Planets orbit the Sun based on their relative speeds.
