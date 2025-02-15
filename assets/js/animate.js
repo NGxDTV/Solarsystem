@@ -40,7 +40,6 @@ function animate() {
     if (solarSystem) {
         const sunPos = new THREE.Vector3();
         solarSystem.children[0].getWorldPosition(sunPos); // Sonne
-
         const orbits = [
             // Periode = 2π / speed; 1 Erdenjahr ≈ 31.42 Zeiteinheiten (speed=0.2)
 
@@ -61,7 +60,6 @@ function animate() {
             // Neptun: 164.8 Jahre → speed ≈ 0.00121, Rotation: 0.67 Tage → rotationSpeed ≈ 1.493
             { planet: solarSystem.children[8], distance: 350, speed: 0.00121, rotationSpeed: 1.493 }
         ];
-
         orbits.forEach(o => {
             const angle = time * o.speed;
             o.planet.position.set(
@@ -73,11 +71,39 @@ function animate() {
         });
     }
 
-    if (moon && earth) {
+    if (moon) {
         // 27 Tage×24 Stunden/Tag=648 Stunden + 7 Stunden=655 Stunden / 24 = 27,2917 / 10 = 2.72917
         const moonOrbitSpeed = 2.72917;
         const angle = time * moonOrbitSpeed;
         moon.position.set(15 * Math.cos(angle), 0, 15 * Math.sin(angle));
+    }
+
+    // Phobos
+    if (solarSystem.children[4].children.length > 0) {
+        const mars = solarSystem.children[4];
+        const phobos = mars.children.find(child => child.userData?.name === "Phobos");
+
+        if (phobos) {
+            const phobosOrbitSpeed = (2 * Math.PI) / 0.3189;
+            const angle = time * phobosOrbitSpeed;
+
+            phobos.rotation.y = angle * 10;
+            phobos.position.set(6 * Math.cos(angle), 0, 6 * Math.sin(angle));
+        }
+    }
+
+    // Deimos
+    if (solarSystem.children[4].children.length > 0) {
+        const mars = solarSystem.children[4];
+        const deimos = mars.children.find(child => child.userData?.name === "Deimos");
+
+        if (deimos) {
+            const deimosOrbitSpeed = (2 * Math.PI) / 1.262; // Umlaufzeit 1.262 Tage
+            const angle = time * deimosOrbitSpeed;
+
+            deimos.rotation.y = angle * 10;
+            deimos.position.set(12 * Math.cos(angle), 0, 12 * Math.sin(angle));
+        }
     }
 
     if (selectedObject) {

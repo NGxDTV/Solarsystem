@@ -311,6 +311,73 @@ function createNeptune(sun) {
     return neptune;
 }
 
+// Moon - Mars
+function createPhobos(mars) {
+    // "Real Size:"
+    // const geometry = new THREE.SphereGeometry(0.012, 32, 32);
+    const geometry = new THREE.SphereGeometry(0.2, 32, 32);
+
+    const posAttr = geometry.attributes.position;
+
+    for (let i = 0; i < posAttr.count; i++) {
+        const x = posAttr.getX(i);
+        const y = posAttr.getY(i);
+        const z = posAttr.getZ(i);
+
+        const distortion = 0.2 + Math.random() * 0.2;
+        posAttr.setXYZ(i, x * (1 + distortion), y * (1.6 + distortion), z * (1.2 + distortion));
+    }
+
+    posAttr.needsUpdate = true;
+
+    const material = new THREE.MeshStandardMaterial({
+        map: new THREE.TextureLoader().load("images/Moon/2k_moon.jpg"),
+        roughness: 1,
+        metalness: 0,
+        side: THREE.DoubleSide
+    });
+
+    const phobos = new THREE.Mesh(geometry, material);
+
+    phobos.userData = { type: { type: "Moon" }, name: "Phobos", mass: 1.07e16, parent: mars };
+    phobos.position.set(8, 0, 0);
+
+    return phobos;
+}
+
+function createDeimos(mars) {
+    // "Real Size:"
+    // const geometry = new THREE.SphereGeometry(0.0064, 32, 32);
+    const geometry = new THREE.SphereGeometry(0.15, 32, 32);
+
+    const posAttr = geometry.attributes.position;
+
+    for (let i = 0; i < posAttr.count; i++) {
+        const x = posAttr.getX(i);
+        const y = posAttr.getY(i);
+        const z = posAttr.getZ(i);
+
+        const distortion = 0.2 + Math.random() * 0.2;
+        posAttr.setXYZ(i, x * (1.5 + distortion), y * (1.1 + distortion), z * (1.2 + distortion));
+    }
+
+    posAttr.needsUpdate = true;
+
+    const material = new THREE.MeshStandardMaterial({
+        map: new THREE.TextureLoader().load("images/Moon/2k_moon.jpg"),
+        roughness: 1,
+        metalness: 0,
+        side: THREE.DoubleSide
+    });
+
+    const deimos = new THREE.Mesh(geometry, material);
+
+    deimos.userData = { type: { type: "Moon" }, name: "Deimos", mass: 1.48e15, parent: mars };
+    deimos.position.set(12, 0, 0);
+
+    return deimos;
+}
+
 function createSolarSystem() {
     const solarSystem = new THREE.Group();
     const sun = createSun();
@@ -322,8 +389,13 @@ function createSolarSystem() {
     const saturn = createSaturn(sun);
     const uranus = createUranus(sun);
     const neptune = createNeptune(sun);
+
     const moon = createMoon(earth);
+    const phobos = createPhobos(mars);
+    const deimos = createDeimos(mars);
+
     sun.userData.planets.push(mercury, venus, earth, mars, jupiter, saturn, uranus, neptune);
+
     solarSystem.add(sun);
     solarSystem.add(mercury);
     solarSystem.add(venus);
@@ -333,6 +405,11 @@ function createSolarSystem() {
     solarSystem.add(saturn);
     solarSystem.add(uranus);
     solarSystem.add(neptune);
+    
     earth.add(moon);
+
+    mars.add(phobos);
+    mars.add(deimos);
+
     return solarSystem;
 }
