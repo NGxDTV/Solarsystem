@@ -7,7 +7,7 @@ let currentTween = null, lastFrameTime = performance.now(), frameCount = 0, fps 
 let fogEnabled = true, starfieldEnabled = true, stars;
 let bulletTime = false, wireframeToggle = false, autoRotate = false, envMap = null, gridVisible = true, bgMusic2Playing = false, neon = false;
 let trailsEnabled = false, attractionEnabled = false, debugEnabled = false, trailOpacity = 1, isAnimating = false;
-let minimapRenderer, minimapCamera, gridGeometry, gridMesh, solarSystem, realSun, earth, moon;
+let minimapRenderer, minimapCamera, gridGeometry, gridMesh, solarSystem, realSun;
 
 let simulationStartDate = null;
 

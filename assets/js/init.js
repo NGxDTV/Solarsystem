@@ -319,8 +319,6 @@ function init() {
     solarSystem = createSolarSystem();
     scene.add(solarSystem);
     realSun = solarSystem.children[0];
-    earth = solarSystem.children[3];
-    moon = earth.children.find(child => child.userData?.type?.type === "Moon");
 
     suns.push(realSun);
     setPlanetenNachDatum(new Date());
